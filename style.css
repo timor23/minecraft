@@ -3,9 +3,9 @@
     height: 100vh;
 }
 .gameWorld {
-    /* display: grid; */
-    /* grid-template-columns: repeat(25, 1fr);
-    grid-template-rows: repeat(17, 1fr); */
+    display: grid;
+    grid-template-columns: repeat(20, 1fr); 
+    grid-template-rows: repeat(16, 1fr); 
     /* height: 95vh; */
     width: 85vw;
 }
