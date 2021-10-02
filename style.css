@@ -50,6 +50,10 @@
     width: 75px;
 }
 
+.selected {
+    border: 1px solid red;
+}
+
 .grass {
     background: url("./images/grass.png") no-repeat center/cover;
 }

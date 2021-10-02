@@ -17,8 +17,10 @@ function createWorld(rows, cols) {
         let row = Math.floor(c / cols);
         let col = Math.floor(c % cols);
         let cell = document.createElement("div");
-        // cell.style.background = "#95d7f1";
-        world.appendChild(cell).className = "grid-item";
+        cell.setAttribute("position", `${row}.${col}`);
+        // cell.setAttribute("isEmpty", true);
+
+        world.appendChild(cell).classList.add("isEmpty");
         gridMatrix[`${row}.${col}`] = cell;
     }
 }
@@ -27,53 +29,40 @@ function createLand() {
     let row = 10; // grass row
     for (let col = 0; col < 20; col++) {
         gridMatrix[`${row}.${col}`].classList.add("grass");
+        gridMatrix[`${row}.${col}`].classList.remove("isEmpty");
     }
     for (row = 11; row < 16; row++) {
         for (let col = 0; col < 20; col++) {
             gridMatrix[`${row}.${col}`].classList.add("dirt");
+            gridMatrix[`${row}.${col}`].classList.remove("isEmpty");
         }
     }
 }
 
 
+
+
+function collectMaterial(e) {
+    // let row = e.target.gridRow;
+    // console.log(row);
+    let target = e.target.classList;
+    let tilePosition = e.target.getAttribute("position");
+    console.log(tilePosition);
+    // console.log(e.target.getAttribute("isEmpty"));
+    if (true) {
+        if (target.contains("dirt") || target.contains("grass")) {
+            e.target.classList.remove("grass", "dirt");
+            e.target.classList.add("isEmpty");
+        }
+    }
+
+}
+
+
 //===========================
-// Creates a default grid sized 16x16
-// function defaultGrid() {
-//     makeRows(16);
-//     makeColumns(20);
-// }
 
-// Takes (rows, columns) input and makes a grid
-// function makeRows(rowNum) {
+shovel.addEventListener("click", (element) => {
+    shovel.classList.add("selected");
+    world.addEventListener("click", collectMaterial);
 
-//     // Creates rows
-//     for (r = 0; r < rowNum; r++) {
-//         let row = document.createElement("div");
-//         world.appendChild(row).className = "gridRow";
-//     }
-// }
-
-// // Creates columns
-// function makeColumns(cellNum) {
-//     for (i = 0; i < rows.length; i++) {
-//         for (j = 0; j < cellNum; j++) {
-//             let newCell = document.createElement("div");
-//             newCell.style.background = "#95d7f1";
-//             rows[j].appendChild(newCell).className = "cell";
-//         }
-
-//     }
-// }
-//////=========
-// function createWorld() {
-//     for (let r = 0; r < 17; r++) {
-//         for (let c = 0; c < 25; c++) {
-//             let tile = document.createElement("div");
-//             tile.style.backgroundColor = '#95d7f1';
-//             world.appendChild(tile);
-//             tile.style.gridRow = r;
-//             tile.style.gridColumn = c;
-//
-//         }
-//     }
-// }
+});
