@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+}
+.gameWorld {
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    height: 100vh;
+    width: 85vw;
+}
+
+.inventory {
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+    background: black;
+    color: white;
+}
+
+.tools {
+    display: flex;
+    margin: 20px 0 auto;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.axe > div {
+    background: url("./images/axe.png") no-repeat center/cover ;
+    width: 75px;
+    height: 75px;
+}
+
+.pickaxe > div {
+    background: url("./images/pickaxe.png") no-repeat center/cover ;
+    width: 75px;
+    height: 75px;
+}
+
+.shovel > div {
+    background: url("./images/shovel.png") no-repeat center/cover;
+    width: 75px;
+    height: 75px;
+}
+.shovel,
+.pickaxe,
+.axe {
+    border: 1px solid white;
+    text-align: center;
+    width: 75px;
+}
