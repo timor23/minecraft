@@ -49,3 +49,24 @@
     text-align: center;
     width: 75px;
 }
+
+.grass {
+    background: url("./images/grass.png") no-repeat center/cover;
+}
+
+.dirt {
+    background: url("./images/dirt.png") no-repeat center/cover;
+}
+
+.rock {
+    background: url("./images/rock.png") no-repeat center/cover;
+}
+
+.wood {
+    background: url("./images/wood.png") no-repeat center/cover;
+}
+
+.leaves {
+    background: url("./images/leaves.png") no-repeat center/cover;
+}
+

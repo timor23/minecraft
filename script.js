@@ -3,23 +3,37 @@ const pickaxe = document.querySelector(".pickaxe");
 const shovel = document.querySelector(".shovel");
 const world = document.querySelector(".gameWorld");
 
-
-
+const gridMatrix = {};
 // createWorld();
-makeRows(16,20);
+world.style.backgroundColor = "#95d7f1"
+
+createWorld(16, 20);
+createLand();
 
 
-function makeRows(rows, cols) {
-    world.style.setProperty('--grid-rows', rows);
-    world.style.setProperty('--grid-cols', cols);
+function createWorld(rows, cols) {
+
     for (let c = 0; c < (rows * cols); c++) {
-      let cell = document.createElement("div");
-      cell.style.background = "#95d7f1";
-      world.appendChild(cell).className = "grid-item";
-    };
-  };
-  
-  makeRows(16, 16);
+        let row = Math.floor(c / cols);
+        let col = Math.floor(c % cols);
+        let cell = document.createElement("div");
+        // cell.style.background = "#95d7f1";
+        world.appendChild(cell).className = "grid-item";
+        gridMatrix[`${row}.${col}`] = cell;
+    }
+}
+
+function createLand() {
+    let row = 10; // grass row
+    for (let col = 0; col < 20; col++) {
+        gridMatrix[`${row}.${col}`].classList.add("grass");
+    }
+    for (row = 11; row < 16; row++) {
+        for (let col = 0; col < 20; col++) {
+            gridMatrix[`${row}.${col}`].classList.add("dirt");
+        }
+    }
+}
 
 
 //===========================
@@ -51,15 +65,15 @@ function makeRows(rows, cols) {
 //     }
 // }
 //////=========
-function createWorld() {
-    for (let r = 0 ; r < 17 ; r++) {
-        for (let c = 0 ; c < 25 ; c++) {
-            let tile = document.createElement("div");
-            tile.style.backgroundColor = '#95d7f1';
-            world.appendChild(tile);
-            tile.style.gridRow = r;
-            tile.style.gridColumn = c;
-            
-        }
-    }
-}
+// function createWorld() {
+//     for (let r = 0; r < 17; r++) {
+//         for (let c = 0; c < 25; c++) {
+//             let tile = document.createElement("div");
+//             tile.style.backgroundColor = '#95d7f1';
+//             world.appendChild(tile);
+//             tile.style.gridRow = r;
+//             tile.style.gridColumn = c;
+//
+//         }
+//     }
+// }
