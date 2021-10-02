@@ -1,11 +1,12 @@
 .container {
     display: flex;
+    height: 100vh;
 }
 .gameWorld {
-    display: grid;
-    grid-template-columns: repeat(25, 1fr);
-    grid-template-rows: repeat(20, 1fr);
-    height: 100vh;
+    /* display: grid; */
+    /* grid-template-columns: repeat(25, 1fr);
+    grid-template-rows: repeat(17, 1fr); */
+    /* height: 95vh; */
     width: 85vw;
 }
 
