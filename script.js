@@ -22,14 +22,7 @@ let invButtons = [axe, pickaxe, shovel, grass, wood, leaves, dirt, rock];
 const matrix = [];
 
 createWorld(16, 20);
-createLand();
-createTree(4);
-createTree(11);
-createRocks(15, 1);
-createRocks(16, 2);
-createRocks(17, 3);
-createRocks(18, 4);
-createRocks(19, 5);
+
 
 console.log(matrix);
 
@@ -47,6 +40,15 @@ function createWorld(rows, cols) {
         gridMatrix[`${row}.${col}`] = cell;
         // matrix[row][col] = cell;
     }
+
+    createLand();
+    createTree(4);
+    createTree(11);
+    createRocks(15, 1);
+    createRocks(16, 2);
+    createRocks(17, 3);
+    createRocks(18, 4);
+    createRocks(19, 5);
 }
 
 function createLand() {
