@@ -201,28 +201,25 @@ function work(e) {
 //===========================
 
 shovel.addEventListener("click", (element) => {
+    unselectAll();
     shovel.classList.add("selected");
     selected = "shovel";
     world.addEventListener("click", work);
 });
 
 axe.addEventListener("click", (element) => {
+    unselectAll();
     axe.classList.add("selected");
     selected = "axe";
     world.addEventListener("click", work);
 });
 
 pickaxe.addEventListener("click", (element) => {
+    unselectAll();
     pickaxe.classList.add("selected");
     selected = "pickaxe";
     world.addEventListener("click", work);
 });
-
-function unselectAll() {
-    invButtons.forEach(e => {
-        e.style.border = "1px solid white";
-    })
-}
 
 
 grass.addEventListener("click", (element) => {
@@ -259,4 +256,10 @@ leaves.addEventListener("click", (element) => {
     selected = "leaves";
     world.addEventListener("click", work);
 });
+
+function unselectAll() {
+    invButtons.forEach(e => {
+        e.style.border = "1px solid white";
+    })
+}
 
